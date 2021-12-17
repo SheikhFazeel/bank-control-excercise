@@ -48,3 +48,13 @@ Personal id: Should be required and it should be exactly 11 characters.
 Sex: Should be required.
 Accounts: At least one account is required.
 
+### Requirements:
+
+- For backend you can use Json Server (https://www.npmjs.com/package/json-server).
+- Lazy loading
+- Route resolver
+- Reusable form controls: Input, select, button and etc.
+- Angular material. 
+- Source-Control. (github, bitbucket, azuredevops, etc.) 
+- Desirable but not required some state management library (Ngxs, Ngxs)
+- Good UI/UX

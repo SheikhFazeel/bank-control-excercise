@@ -37,8 +37,9 @@ Admin user should be able to add users, filter them, or sort. The user list shou
 
 The user fields should be following:
 
-Email, First name, Last name, Personal Id, Profile photo, Mobile number, Sex (Male, Female), Address with subfields( Country, City, Street, Zip Code), Account (Account can be added as many as necessary) 
-Validations:
+Email, First name, Last name, Personal Id, Profile photo, Mobile number, Sex (Male, Female), Address with subfields( Country, City, Street, Zip Code), Account (Account can be added as many as necessary)
+
+### Validations:
 Email: Should be required and email format.
 First name: Should be required and less than 60 characters. 
 Last name: Should be required and less than 60 characters.

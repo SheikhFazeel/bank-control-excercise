@@ -1,0 +1,54 @@
+.example-container {
+  height: 100vh;
+}
+
+.height-75 {
+  height: 75px;
+}
+
+mat-drawer {
+  margin-top: 70px;
+  width: 255px;
+  box-shadow: 6px 0 2px -2px #eaedf3;
+}
+
+mat-drawer-content {
+  margin-top: 70px;
+}
+
+.sidebar-user {
+  padding: 25px 10px;
+  box-shadow: 0 3px 6px 0 #eaedf3;
+  text-align: center;
+  .user-name {
+    letter-spacing: 1.5px;
+  }
+  .user-img {
+    width: 80px;
+    border-radius: 50%;
+    height: 80px;
+    object-fit: scale-down;
+  }
+}
+
+::ng-deep {
+  .mat-list-text {
+    display: block !important;
+  }
+  .mat-list-single-selected-option,
+  .mat-list-single-selected-option:hover,
+  .mat-list-single-selected-option:focus {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.menu-items {
+  .menu-item-icon {
+    margin-top: -4px;
+    width: 25px;
+  }
+  .menu-item-text {
+    margin-left: 10px;
+    font-weight: 500;
+  }
+}

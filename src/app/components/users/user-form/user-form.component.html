@@ -1,0 +1,178 @@
+<div class="m-4">
+    <div class="col-12 d-flex mb-3 p-0">
+        <div class="col-8 p-0 d-flex">
+            <div>
+                <h4 class="add-title">
+                    <img class="back-arrow" [routerLink]="'/users'" src="/assets/images/back-arrow.png"
+                        alt="back-arrow">
+                </h4>
+            </div>
+            <div>
+                <h2 class="m-0 main-heading">
+                    {{isEditMode() == null ? 'Add New User' : 'Edit User'}}
+                </h2>
+                <span class="m-0 user-panel text-capitalize main-sub-heading">Super Admin Panel</span>
+            </div>
+        </div>
+        <div class="col-4 p-0">
+            <div class="btn-popup float-end">
+                <a class="btn btn-primary text-capitalize" (click)="submit()">
+                    Save
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body m-3">
+            <div class="pb-3 user-details">
+                User Details
+            </div>
+            <form [formGroup]="form" novalidate autocomplete="false">
+                <div class="row pb-2">
+                    <div class="col-12 d-flex p-0">
+                        <div class="col-6 d-flex p-0">
+                            <label for="image" class="col-4 my-auto weight">
+                                Profile Picture
+                            </label>
+                            <div class="col-8 p-l-0">
+                                <div class="box-input-file">
+                                    <img class="img-placeholder-width mr-4" alt="user-img" [src]="image.img">
+                                    <button type="button" class="btn btn-primary m-l-20"
+                                        (click)="fileElement.click()">Upload</button>
+                                    <input class="form-control d-none" id="image" type="file" #fileElement
+                                        (change)="onImageSelected($event)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex p-0">
+                            <label for="gender" class="col-3 my-auto weight">
+                                Gender
+                            </label>
+                            <div class="col-9 p-l-0 my-auto">
+                                <div class="box-input-file">
+                                    <mat-radio-group aria-label="Select gender" formControlName="gender">
+                                        <mat-radio-button value="male">Male</mat-radio-button>
+                                        <mat-radio-button value="female">Female</mat-radio-button>
+                                        <mat-radio-button value="other">Other</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 pr-4">
+                        <mat-form-field class="w-100">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstName" [value]="user?.firstName">
+                            <!-- error -->
+                            <mat-error *ngIf="(form.get('firstName'))?.errors?.required">
+                                <strong>First Name</strong> is required.
+                            </mat-error>
+                            <mat-error *ngIf="(form.get('firstName'))?.errors?.maxlength">
+                                <strong>First Name</strong> should be less than 60 characters.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <mat-form-field class="w-100">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="lastName" [value]="user?.lastName">
+                            <!-- error -->
+                            <mat-error *ngIf="(form.get('lastName'))?.errors?.required">
+                                <strong>Last Name</strong> is required.
+                            </mat-error>
+                            <mat-error *ngIf="(form.get('lastName'))?.errors?.maxlength">
+                                <strong>Last Name</strong> should be less than 60 characters.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6 pr-4">
+                        <mat-form-field class="w-100">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email">
+                            <!-- error -->
+                            <mat-error *ngIf="(form.get('email'))?.errors?.required">
+                                <strong>Email</strong> is required
+                            </mat-error>
+                            <mat-error *ngIf="(form.get('email'))?.errors?.pattern">
+                                Please enter valid email address
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6">
+                        <ngx-intl-tel-input class="w-100" [cssClass]="'telephone-number'" [separateDialCode]="true"
+                            [preferredCountries]="preferredCountries" [enableAutoCountrySelect]="true"
+                            [enablePlaceholder]="true" [searchCountryFlag]="true"
+                            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                            [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.Pakistan" [maxLength]="15"
+                            [phoneValidation]="true" name="contactNo" formControlName="contactNo">
+                        </ngx-intl-tel-input>
+                        <mat-error class="phone-error"
+                            *ngIf="(form.get('contactNo'))?.errors?.required && form.controls['contactNo'].touched">
+                            <strong>Contact Number</strong> is required
+                        </mat-error>
+
+                    </div>
+                </div>
+
+                <div class="row" formGroupName="address">
+                    <div class="col-12 d-flex p-0">
+                        <div class="col-3 d-flex">
+                            <mat-form-field class="w-100">
+                                <mat-label>Street</mat-label>
+                                <input matInput formControlName="street">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3 d-flex">
+                            <mat-form-field class="w-100">
+                                <mat-label>City</mat-label>
+                                <input matInput formControlName="city">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3 d-flex">
+                            <mat-form-field class="w-100">
+                                <mat-label>Country</mat-label>
+                                <input matInput formControlName="country">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-3 d-flex">
+                            <mat-form-field class="w-100">
+                                <mat-label>Zip Code</mat-label>
+                                <input matInput formControlName="zipCode">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <mat-form-field class="w-100" appearance="standard">
+                            <mat-label>Accounts</mat-label>
+                            <mat-chip-list #chipList required formControlName="accounts" aria-label="account selection">
+                                <mat-chip *ngFor="let account of accounts" (removed)="remove(account)">
+                                    {{account}}
+                                    <button matChipRemove>
+                                        <mat-icon>cancel</mat-icon>
+                                    </button>
+                                </mat-chip>
+                                <input placeholder="Add new account..." [matChipInputFor]="chipList"
+                                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                    [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                            </mat-chip-list>
+                            <mat-error *ngIf="(form.get('accounts'))?.errors?.required">
+                                Atleast one <strong>account</strong> is required!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="m-4">
+    <div class="col-12 d-flex mb-3 p-0">
+        <div class="col-8 p-0">
+            <h2 class="m-0 main-heading">Users Listing</h2>
+            <div class="m-0 user-panel text-capitalize main-sub-heading">Super Admin Panel</div>
+        </div>
+        <div class="col-4 p-0">
+            <div class="btn-popup float-end">
+                <a class="btn btn-primary text-capitalize mr-4 delete-user" *ngIf="selectedRecords.length != 0"
+                    (click)="deleteUsers()">
+                    {{selectedRecords.length > 1 ? 'Delete Users' : 'Delete User'}}
+                </a>
+                <a class="btn btn-primary text-capitalize" [routerLink]="'/users/add'">
+                    Add New User
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex height-adjust">
+                <div class="table-heading col-8 p-0">
+                    Manage Users
+                </div>
+                <div class="search-table col-4 p-0">
+                    <div class="w-100">
+                        <form>
+                            <mat-form-field appearance="standard" class="w-100">
+                                <mat-label>Search</mat-label>
+                                <input type="text" aria-label="search" matInput #input [formControl]="searchControl"
+                                    [value]="searchValue ? searchValue : ''" [matAutocomplete]="auto">
+                                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+                                    (optionSelected)='getSelectedSearch($event.option.value)'>
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <app-table [tableColumns]="tableColumns" [endPointConfiguration]="endPointConfiguration"
+                    [requestBody]="requestBody" [eventsSub]="eventsSubject.asObservable()"
+                    (clickedOnRow)="onRowClicked($event);" (selectedUsersCount)="selectedRows($event.selectedRows)"
+                    (searchQuery)="searchString($event)">
+                </app-table>
+            </div>
+        </div>
+    </div>
+</div>

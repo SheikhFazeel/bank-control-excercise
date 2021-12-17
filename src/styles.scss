@@ -1,0 +1,281 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+$primary-text-color: #44546a;
+
+html,
+body {
+    height: 100%;
+    color: $primary-text-color !important;
+}
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    // font-family: "Quicksand", sans-serif !important;
+    margin: 0;
+    color: $primary-text-color !important;
+}
+
+mat-drawer {
+    height: 100vh;
+}
+
+.logo,
+.user-name,
+h3,
+h2,
+.menu-item-text {
+    color: $primary-text-color;
+}
+
+.btn-primary {
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.5rem;
+    background: $primary-text-color;
+    border-color: $primary-text-color;
+    color: #fff;
+    border-radius: 10px;
+    &:hover {
+        background: #303b4b;
+        border-color: #303b4b;
+    }
+    &:active {
+        background: #303b4b;
+        border-color: #303b4b;
+    }
+    &:focus {
+        background: #303b4b;
+        border-color: #303b4b;
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+    background: #303b4b;
+    border-color: #303b4b;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus,
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: none;
+}
+
+.main-heading {
+    font-size: 24px !important;
+}
+
+.main-sub-heading {
+    font-size: 14px !important;
+    color: rgba(68, 84, 106, 0.51);
+}
+
+.table-heading {
+    font-size: 17px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.24;
+    letter-spacing: normal;
+    color: $primary-text-color;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+::ng-deep {
+    .mat-checkbox-background {
+        background: $primary-text-color !important;
+    }
+}
+
+.mat-form-field-appearance-standard .mat-form-field-flex {
+    padding-top: 0 !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $primary-text-color !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: $primary-text-color !important;
+}
+
+.back-arrow {
+    margin-top: -5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.delete-user {
+    background: #cf2e2e !important;
+    border-color: #cf2e2e !important;
+    &:hover {
+        background: #902020 !important;
+        border-color: #902020 !important;
+    }
+}
+
+.add-title {
+    margin-top: 5px !important;
+    margin-right: 7px !important;
+}
+
+.card {
+    box-shadow: 0 0 12px 0 rgb(0 0 0 / 10%);
+    border: none;
+}
+
+/* Contact number */
+
+.iti {
+    display: block !important;
+    margin-bottom: 20px;
+    .dropdown-menu.country-dropdown {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-color: #c7cace;
+        margin-top: -1px;
+    }
+    .iti .iti__country-list {
+        box-shadow: none;
+        font-size: 14px;
+        margin-left: 0;
+        width: 244px;
+        max-height: 170px;
+    }
+    .search-container input {
+        font-size: 14px;
+        border-color: #c7cace;
+        border-radius: 0;
+        padding: 5px 10px;
+    }
+
+    .search-container input:focus {
+        outline: none;
+    }
+}
+
+.iti__flag-container.open + input {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+@media screen and (max-width: 479px) {
+    .iti .iti__country-list {
+        width: 88.3vw;
+    }
+}
+
+ngx-intl-tel-input input {
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid $primary-text-color !important;
+    font-size: 14px;
+    &:hover {
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.24);
+    }
+    &:focus {
+        outline: none !important;
+        border-color: #3498db;
+        box-shadow: 0 0 0 0 #000;
+    }
+}
+
+ngx-intl-tel-input.ng-invalid.ng-touched input {
+    border-bottom: 1px solid #ff5722 !important;
+}
+
+ngx-intl-tel-input input::-webkit-input-placeholder {
+    color: #bac2c7;
+}
+
+ngx-intl-tel-input input:-ms-input-placeholder {
+    color: #bac2c7;
+}
+
+ngx-intl-tel-input input::-ms-input-placeholder {
+    color: #bac2c7;
+}
+
+ngx-intl-tel-input input::placeholder {
+    color: #bac2c7;
+}
+
+ngx-intl-tel-input input[disabled] {
+    background-color: #e5eaf1;
+}
+
+.telephone-number {
+    border: none;
+    width: 100% !important;
+}
+
+// .mat-toolbar-single-row {
+//     height: auto !important;
+//     background: transparent;
+//     button {
+//         width: 200px;
+//     }
+// }
+
+// .mat-toolbar-single-row button {
+// }
+
+.upload-input {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    margin-left: -15px !important;
+}
+
+#fileUpload {
+    position: absolute;
+    z-index: 9;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.img-placeholder-width {
+    width: 100px;
+    height: 100px;
+    object-fit: scale-down;
+    border-radius: 10px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 25px;
+}
+
+.card-body {
+    .user-details {
+        font-size: 18px;
+        font-weight: 500;
+        color: $primary-text-color;
+        line-height: 24px;
+        letter-spacing: 0.05em;
+    }
+
+    .phone-error {
+        font-size: 75%;
+        margin-top: -19px;
+    }
+
+    .weight {
+        font-weight: 500;
+    }
+}
